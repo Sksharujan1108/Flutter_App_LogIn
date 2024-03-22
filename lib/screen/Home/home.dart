@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
       // );
 
       // 02 ********
-      Navigator.of(context).pushNamed('/home');
+      Navigator.of(context).pushNamed('/profile');
 
       // 03 ********
       // Navigator.of(context).push(
