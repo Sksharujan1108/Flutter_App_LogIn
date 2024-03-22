@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_first/route/route.dart';
 import 'package:flutter_application_first/screen/Home/home.dart';
 import 'package:flutter_application_first/utils/theme.dart';
 
@@ -18,10 +19,14 @@ class _ProfileState extends State<Profile> {
 
    if (isLoggedIn) {
       // Navigate to the HomeScreen if login is successful
-      Navigator.pop(
-        context,
-        MaterialPageRoute(builder: (context) => const Home()),
-      );
+
+      Navigator.of(context).pop();
+      
+      // Route set the Navigation
+      // Navigator.popUntil(
+      //   context,
+      //   ModalRoute.withName(homeRoute), // Use ModalRoute.withName
+      // );
     }
   }
 
