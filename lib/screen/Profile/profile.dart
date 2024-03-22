@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_first/route/route.dart';
-import 'package:flutter_application_first/screen/Home/home.dart';
+import 'package:flutter_application_first/screen/User/user.dart';
 import 'package:flutter_application_first/utils/theme.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  // final User user;
+
+  const Profile({
+    super.key,
+    // required this.user,
+  });
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -47,22 +51,28 @@ class _ProfileState extends State<Profile> {
           ),
           backgroundColor: lightColorScheme.outlineVariant,
         ),
-        body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
+        
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Text('Name: ${widget.user.name}'),
+              // Text('Designation: ${widget.user.designation}'),
 
-                const SizedBox(height: 50),
+              const SizedBox(height: 50),
 
-                ElevatedButton(
+              Center(
+                child: ElevatedButton(
                   onPressed: onBackBtn, 
                   child: const Text(
                     'Back'
                   )
                 )
-              ],
-            ),
-          )
+              )
+            ],
+          ),
         ),
       ),
     );

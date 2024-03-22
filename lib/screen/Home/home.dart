@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_application_first/route/route.dart';
-import 'package:flutter_application_first/screen/Profile/profile.dart';
+import 'package:flutter_application_first/screen/User/user.dart';
 import 'package:flutter_application_first/utils/theme.dart';
+import 'package:flutter_application_first/widgets/UserListView/userListView.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -37,6 +38,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final users = User.getAllUsers();
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -55,26 +57,22 @@ class _HomeState extends State<Home> {
           ),
           backgroundColor: lightColorScheme.outlineVariant,
         ),
+
+        // List Style set
         body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
+          // Two Data between the divider so use this widget separate 
+          child: ListView.separated(
+            itemCount: users.length,
+            separatorBuilder: (_, __) => const Divider(thickness: 3,),
+            itemBuilder: (_, index) {
+              final user = users[index];
 
-                const SizedBox(height: 250),
-
-                ElevatedButton(
-                  onPressed: onSubmitBtn, // Call the function here
-                  child: const Text(
-                    'Press Me',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+              // List View data call
+              return UserListView(
+                user: user,
+              );
+            },
+          )
         ),
       ),
     );

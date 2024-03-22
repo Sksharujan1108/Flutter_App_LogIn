@@ -3,6 +3,7 @@ import 'package:flutter_application_first/route/route.dart';
 import 'package:flutter_application_first/screen/Home/home.dart';
 import 'package:flutter_application_first/screen/LogIn/login.dart';
 import 'package:flutter_application_first/screen/Profile/profile.dart';
+import 'package:flutter_application_first/screen/User/user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
       ),
 
       // Routes set up Navigation Model
+      // home: Profile(
+      //   user: User.getAllUsers()[0]
+      // ),
       // 01 ***********
       // onGenerateRoute: routeController,
       // initialRoute: loginRoute,
@@ -28,6 +32,7 @@ class MyApp extends StatelessWidget {
       // 02 ***********
 
       // MaterialApp's InitialRoute and routes Property
+
       // initialRoute: '/',
       // routes: {
       //   '/': (context) => const LogIn(),
