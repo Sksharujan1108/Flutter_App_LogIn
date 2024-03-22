@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_application_first/screen/Home/home.dart';
 import 'package:flutter_application_first/widgets/CustomTextInput/textInput.dart';
 import 'package:flutter_application_first/widgets/Square_Tile/square_tile.dart';
@@ -46,14 +44,14 @@ class _LogInState extends State<LogIn> {
             child: Column(
             children: [
               // this is use PaddingTo Formet 
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               // log Set
               const Icon(
                 Icons.lock,
                 size: 100,
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
 
               // Text Welcome
               const Text(
@@ -142,14 +140,55 @@ class _LogInState extends State<LogIn> {
                   ),
                 ),
 
+                const SizedBox(height: 30),
+
+                // Square Tile Set *** set Image 
                 const Row(
+                    // Center ***** The Image 
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Google Image Set
                     SquareTile(
-                      imagePath: "lib/image/Google.png",
+                      imagePath: 'assets/images/Google.png',
+                    ),
+
+                    SizedBox(width: 10),
+
+                    SquareTile(
+                      imagePath: 'assets/images/fbNew.webp',
                     )
                   ],
-                )
+                ),
+
+                const SizedBox(height: 20),
+
+                // Register Part Create *****
+                const Row(
+                    // Center ***** The Image 
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Google Image Set
+                    Text(
+                      'Not a Member?',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18
+                      )
+                    ),
+
+                    SizedBox(width: 10),
+
+                    Text(
+                      'Register',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      )
+                    ),
+                  ],
+                ),
+
             ],
           ),
           ),

@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
             child: Column(
               children: [
 
-                const SizedBox(height: 50),
+                const SizedBox(height: 250),
 
                 ElevatedButton(
                   onPressed: onSubmitBtn, // Call the function here
