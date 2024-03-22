@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_first/screen/LogIn/login.dart';
-import 'package:flutter_application_first/utils/theme.dart';
+import 'package:flutter_application_first/route/route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: const LogIn(),
+
+      // Routes set up Navigation Model
+      onGenerateRoute: routeController,
+      initialRoute: loginRoute,
     );
   }
 }

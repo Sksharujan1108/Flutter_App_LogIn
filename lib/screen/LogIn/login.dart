@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_first/screen/Home/home.dart';
+import 'package:flutter_application_first/route/route.dart';
 import 'package:flutter_application_first/widgets/CustomTextInput/textInput.dart';
 import 'package:flutter_application_first/widgets/Square_Tile/square_tile.dart';
 
@@ -25,14 +25,18 @@ class _LogInState extends State<LogIn> {
 
    if (isLoggedIn) {
       // Navigate to the HomeScreen if login is successful
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const Home()),
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const Home()),
+      // );
+      
+      // Route set the Navigation
+      Navigator.pushNamed(
+        context, 
+        homeRoute
       );
     }
   }
-
-  
 
   @override
   Widget build(BuildContext context) {

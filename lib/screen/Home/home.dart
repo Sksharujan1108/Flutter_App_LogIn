@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_first/screen/Profile/profile.dart';
+import 'package:flutter_application_first/route/route.dart';
 import 'package:flutter_application_first/utils/theme.dart';
 
 class Home extends StatefulWidget {
@@ -17,9 +17,15 @@ class _HomeState extends State<Home> {
 
     if (isLoggedIn) {
       // Navigate to the Profile screen if login is successful
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const Profile()),
+
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const Profile()),
+      // );
+
+      Navigator.pushNamed(
+        context, 
+        profileRoute,
       );
     }
   }
