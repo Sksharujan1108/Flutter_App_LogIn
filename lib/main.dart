@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       ),
 
       // Routes set up Navigation Model
-      // home: Profile(
-      //   user: User.getAllUsers()[0]
-      // ),
+      home: Home( 
+        user: User.getAllUsers()[0],
+      ),
       // 01 ***********
       // onGenerateRoute: routeController,
       // initialRoute: loginRoute,
@@ -47,24 +47,24 @@ class MyApp extends StatelessWidget {
       some time screen to screen pass the any argument 
       that time defined this route navigation
   */
-      onGenerateRoute: (RouteSettings routeSetting) {
-        if (routeSetting.name == '/') {
-          return MaterialPageRoute(builder: (context) => const LogIn());
-        } else if (routeSetting.name == '/home') {
-          return MaterialPageRoute(builder: (context) => const Home());
-        } else if (routeSetting.name == '/profile') {
-          return MaterialPageRoute(builder: (context) => const Profile());
-        } else {
-          return MaterialPageRoute(
-            builder: (context) => Scaffold(
-              body: Container(
-                alignment: Alignment.center,
-                child: const Text('Not Found This  Page'),
-              )
-            ),
-          );
-        }
-      },
+      // onGenerateRoute: (RouteSettings routeSetting) {
+      //   if (routeSetting.name == '/') {
+      //     return MaterialPageRoute(builder: (context) => const LogIn());
+      //   } else if (routeSetting.name == '/home') {
+      //     return MaterialPageRoute(builder: (context) => const Home());
+      //   } else if (routeSetting.name == '/profile') {
+      //     return MaterialPageRoute(builder: (context) => const Profile());
+      //   } else {
+      //     return MaterialPageRoute(
+      //       builder: (context) => Scaffold(
+      //         body: Container(
+      //           alignment: Alignment.center,
+      //           child: const Text('Not Found This  Page'),
+      //         )
+      //       ),
+      //     );
+      //   }
+      // },
 
     );
   }

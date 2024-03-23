@@ -3,11 +3,11 @@ import 'package:flutter_application_first/screen/User/user.dart';
 import 'package:flutter_application_first/utils/theme.dart';
 
 class Profile extends StatefulWidget {
-  // final User user;
+  final User user;
 
   const Profile({
     super.key,
-    // required this.user,
+    required this.user,
   });
 
   @override
@@ -23,28 +23,23 @@ class _ProfileState extends State<Profile> {
 
    if (isLoggedIn) {
       // Navigate to the HomeScreen if login is successful
-
-      Navigator.of(context).pop();
-      
-      // Route set the Navigation
-      // Navigator.popUntil(
-      //   context,
-      //   ModalRoute.withName(homeRoute), // Use ModalRoute.withName
-      // );
+      Navigator.of(context).pop(widget.user.name);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    // ignore: deprecated_member_use
+    return WillPopScope(
+      // onWillPop method use ***** 
+      onWillPop: () async { 
+        Navigator.pop(context, 'Flutter');
+        return true;
+        // return false;
+      },
+
+      child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
           title: const Text(
             'Profile',
             style: TextStyle(color: Colors.black),
@@ -58,11 +53,12 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Text('Name: ${widget.user.name}'),
-              // Text('Designation: ${widget.user.designation}'),
-
+      
+              Text('Name: ${widget.user.name}'),
+              Text('Designation: ${widget.user.designation}'),
+      
               const SizedBox(height: 50),
-
+      
               Center(
                 child: ElevatedButton(
                   onPressed: onBackBtn, 
@@ -74,7 +70,7 @@ class _ProfileState extends State<Profile> {
             ],
           ),
         ),
-      ),
+      )
     );
   }
 }

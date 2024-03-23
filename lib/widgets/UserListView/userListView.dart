@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_first/screen/Profile/profile.dart';
 import 'package:flutter_application_first/screen/User/user.dart';
 
 class UserListView extends StatelessWidget {
     final User user;
+    final void Function()? onTap;
 
   const UserListView({
     super.key,
-    required this.user
+    required this.user,
+    required this.onTap
   });
 
   @override
@@ -17,6 +20,7 @@ class UserListView extends StatelessWidget {
       // subtitle: Text('Emil : ${user.email}'),
       subtitle: Text('Designation : ${user.designation}'),
       trailing: const Icon(Icons.chevron_right),
+      onTap: onTap
     );
   }
 }
