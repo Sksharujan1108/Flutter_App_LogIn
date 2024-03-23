@@ -3,7 +3,7 @@ import 'package:flutter_application_first/screen/Profile/profile.dart';
 // import 'package:flutter_application_first/route/route.dart';
 import 'package:flutter_application_first/screen/User/user.dart';
 import 'package:flutter_application_first/utils/theme.dart';
-import 'package:flutter_application_first/widgets/UserListView/userListView.dart';
+
 
 class Home extends StatefulWidget {
    final User user;
@@ -21,16 +21,19 @@ class _HomeState extends State<Home> {
   // This is Nullable String 'Is it value or Isn't Value'
   String? dataFromProfile;
 
-  // LogIn Button Press Function
-  void onSubmitBtn() {
-    // Add your login logic here
-    bool isLoggedIn = true; // For demonstration, assume login is successful
+  // Press Function
+  void navigateToProfile(User user) async {
+    final String? result = await Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => Profile(user: user)),
+    );
 
-    if (isLoggedIn) {
-      // 02 ********
-      Navigator.of(context).pushNamed('/profile');
+    if (result != null) {
+      setState(() {
+        dataFromProfile = result;
+      });
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,7 @@ class _HomeState extends State<Home> {
                           dataFromProfile = result;
                         });
                       }
-                      
+
                     },
                   );
                 }
